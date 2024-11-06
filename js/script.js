@@ -49,7 +49,7 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img, .skills-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 ScrollReveal().reveal('.contact p', { origin: 'left' });
@@ -58,9 +58,26 @@ ScrollReveal().reveal('.contact p', { origin: 'left' });
 /*==================== typed js ====================*/
 
 const typed = new Typed('.multiple-text', {
-    strings: ['Web Developer','Front-end Developer', 'Web Designer'],
+    strings: ['CSE Graduate from Premier University Chittagong','Web Developer','Front-end Developer'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
     loop: true
 })
+
+
+// Contact Form Submission
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    emailjs.sendForm("service_5cuhbe5", "template_renjajc", this)
+      .then(function() {
+        alert("Message sent successfully!");
+        document.getElementById("contact-form").reset(); // Reset the form
+        location.reload(); // Reload the page after successful submission
+      }, function(error) {
+        console.error("Failed to send message:", error);
+        alert("Failed to send message. Please try again later.");
+      });
+  });
+  
